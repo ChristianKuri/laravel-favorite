@@ -1,5 +1,5 @@
 {
-    "name": "ChristianKuri/laravel-favorite",
+    "name": "christiankuri/laravel-favorite",
     "type": "library",
     "description": "Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.",
     "keywords": [
