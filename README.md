@@ -2,10 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
 
 **Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.**
 
@@ -27,7 +23,7 @@
 1) Install the package via Composer
 
 ```bash
-$ composer require ChristianKuri/laravel-favorite
+$ composer require christiankuri/laravel-favorite
 ```
 
 2) Update `config/app.php` by adding an entry for the service provider.
@@ -80,7 +76,8 @@ Now the User can favorite models that have the favoriteable trait.
 The models can be favorited with and without an authenticated user
 (see examples below):
 
-**Add to favorites and remove from favorites:**
+### Add to favorites and remove from favorites:
+
 If no param is passed in the favorite method, then the model will asume the auth user.
 
 ``` php
@@ -109,7 +106,8 @@ $user->removeFavorite($post); // The user removed from favorites this post
 $user->toggleFavorite($post); // The user toggles the favorite status from this post
 ```
 
-**Return the favorite objects for the user:**
+### Return the favorite objects for the user:
+
 A user can return the objects he marked as favorite. 
 You just need to pass the **class** in the `favorite()` method in the `User` model.
 
@@ -118,7 +116,8 @@ $user = Auth::user();
 $user->favorite(Post::class); // returns a collection with the Posts the User marked as favorite
 ```
 
-**Return the favorites count from an object**
+### Return the favorites count from an object:
+
 You can return the favorites count from an object, you just need to return the `favoritesCount` attribute from the model
 
 ``` php
@@ -126,7 +125,8 @@ $post = Post::find(1);
 $post->favoritesCount; // returns the number of users that have marked as favorite this object.
 ```
 
-**Return the users who marked this object as favorite**
+### Return the users who marked this object as favorite
+
 You can return the users who marked this object, you just need to call the `favoritedBy()` method in the object
 
 ``` php
