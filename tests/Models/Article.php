@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ChristianKuri\LaravelFavorite\Test\Models;
 
 use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 use Illuminate\Database\Eloquent\Model;

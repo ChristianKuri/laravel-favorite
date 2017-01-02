@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ChristianKuri\LaravelFavorite\Test\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
