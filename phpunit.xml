@@ -14,9 +14,14 @@
 
     <testsuites>
         <testsuite name="Favorite Test Suite">
-            <directory suffix=".php">./tests/</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
     <logging>
         <log type="tap" target="build/report.tap"/>
         <log type="junit" target="build/report.junit.xml"/>
