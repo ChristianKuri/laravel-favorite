@@ -99,7 +99,7 @@ abstract class TestCase extends OrchestraTestCase
     protected function seedModels(...$modelClasses)
     {
         collect($modelClasses)->each(function ($modelClass) {
-            foreach (range(1, 0) as $index) {
+            foreach (range(1, 10) as $index) {
                 $modelClass::create(['name' => "name {$index}"]);
             }
         });
