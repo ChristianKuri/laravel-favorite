@@ -76,10 +76,11 @@ trait Favoriteability
      * The Model needs to have the Favoriteable trai
      * 
      * @param Object $object
+     * @return boolean
      */
     public function isFavorited($object)
     {
-        $object->isFavorited($this->id);
+        return $object->isFavorited($this->id);
     }
 
     /**
@@ -87,9 +88,10 @@ trait Favoriteability
      * The Model needs to have the Favoriteable trai
      * 
      * @param Object $object
+     * @return boolean
      */
     public function hasFavorited($object)
     {
-        $object->isFavorited($this->id);
+        return $object->isFavorited($this->id);
     }
 }
