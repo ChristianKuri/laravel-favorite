@@ -10,11 +10,10 @@ use ChristianKuri\LaravelFavorite\Models\Favorite;
 class FavoriteModelTest extends TestCase
 {
     /** @test */
-    public function a_user_can_favorite_a_model()
+    public function models_can_add_to_favorites_with_auth_user()
     {
         $article = Article::first();
         $user = User::first();
-
         $this->be($user);
 
         $article->addFavorite();
@@ -26,5 +25,82 @@ class FavoriteModelTest extends TestCase
         ]);
 
         $this->assertTrue($article->isFavorited());
+    }
+
+    /** @test */
+    public function models_can_remove_from_favorites_with_auth_user()
+    {
+        $article = Article::first();
+        $user = User::first();
+        $this->be($user);
+
+        $article->removeFavorite();
+
+        $this->notSeeInDatabase('favorites', [
+            'user_id' => $user->id,
+            'favoriteable_id' => $article->id,
+            'favoriteable_type' => get_class($article)
+        ]);
+
+        $this->assertFalse($article->isFavorited());
+    }
+
+    /** @test */
+    public function models_can_toggle_their_favorite_status_with_auth_user()
+    {
+        $article = Article::first();
+        $user = User::first();
+        $this->be($user);
+
+        $article->toggleFavorite();
+
+        $this->assertTrue($article->isFavorited());
+
+        $article->toggleFavorite();
+
+        $this->assertFalse($article->isFavorited());
+    }
+
+    /** @test */
+    public function models_can_add_to_favorites_without_the_auth_user()
+    {
+        $post = Post::first();
+        $post->addFavorite(2);
+
+        $this->seeInDatabase('favorites', [
+            'user_id' => 2,
+            'favoriteable_id' => $post->id,
+            'favoriteable_type' => get_class($post)
+        ]);
+
+        $this->assertTrue($post->isFavorited(2));
+    }
+
+    /** @test */
+    public function models_can_remove_from_favorites_without_the_auth_user()
+    {
+        $post = Post::first();
+        $post->removeFavorite(2);
+
+        $this->notSeeInDatabase('favorites', [
+            'user_id' => 2,
+            'favoriteable_id' => $post->id,
+            'favoriteable_type' => get_class($post)
+        ]);
+
+        $this->assertFalse($post->isFavorited(2));
+    }
+
+    /** @test */
+    public function models_can_toggle_their_favorite_status_without_the_auth_user()
+    {
+        $post = Post::first();
+        $post->toggleFavorite(2);
+
+        $this->assertTrue($post->isFavorited(2));
+
+        $post->toggleFavorite(2);
+
+        $this->assertFalse($post->isFavorited(2));
     }
 }
