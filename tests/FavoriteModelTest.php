@@ -152,4 +152,73 @@ class FavoriteModelTest extends TestCase
 
         $this->assertFalse($user->isFavorited($article));
     }
+
+    /** @test */
+    public function a_user_can_return_his_favorited_models()
+    {
+        $user = User::first();
+
+        $article1 = Article::find(1);
+        $article2 = Article::find(2);
+        $article3 = Article::find(3);
+
+        $post1 = Post::find(1);
+        $post2 = Post::find(2);
+
+        $user->addFavorite($article1);
+        $user->addFavorite($article2);
+        $user->addFavorite($article3);
+
+        $user->addFavorite($post1);
+        $user->addFavorite($post2);
+
+        $this->assertEquals(3, $user->favorite(Article::class)->count());
+        $this->assertEquals(2, $user->favorite(Post::class)->count());
+
+        $user->removeFavorite($article1);
+        $user->removeFavorite($article2);
+        $user->removeFavorite($article3);
+
+        $user->removeFavorite($post1);
+        $user->removeFavorite($post2);
+
+        $this->assertEquals(0, $user->favorite(Article::class)->count());
+        $this->assertEquals(0, $user->favorite(Post::class)->count());
+    }
+
+    /** @test */
+    public function a_model_knows_how_make_users_have_favorited_him()
+    {
+        $article = Article::first();
+
+        $article->toggleFavorite(1);
+        $article->toggleFavorite(2);
+        $article->toggleFavorite(3);
+
+        $this->assertEquals(3, $article->favoritesCount());
+
+        $article->toggleFavorite(1);
+        $article->toggleFavorite(2);
+        $article->toggleFavorite(3);
+
+        $this->assertEquals(0, $article->favoritesCount());
+    }
+
+    /** @test */
+    public function a_model_knows_how_which_users_have_favorited_him()
+    {
+        $article = Article::first();
+
+        $article->toggleFavorite(1);
+        $article->toggleFavorite(2);
+        $article->toggleFavorite(3);
+
+        $this->assertEquals(3, $article->favoritedBy()->count());
+
+        $article->toggleFavorite(1);
+        $article->toggleFavorite(2);
+        $article->toggleFavorite(3);
+
+        $this->assertEquals(0, $article->favoritedBy()->count());
+    }
 }
