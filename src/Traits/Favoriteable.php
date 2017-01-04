@@ -3,7 +3,7 @@
 namespace ChristianKuri\LaravelFavorite\Traits;
 
 use ChristianKuri\LaravelFavorite\Models\Favorite;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * This file is part of Laravel Favorite,

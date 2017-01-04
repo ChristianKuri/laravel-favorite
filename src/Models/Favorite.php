@@ -2,8 +2,8 @@
 
 namespace ChristianKuri\LaravelFavorite\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 /**
  * This file is part of Laravel Favorite,
@@ -41,6 +41,6 @@ class Favorite extends Model
 
 	public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Config::get('auth.providers.users.model'));
     }
 }
