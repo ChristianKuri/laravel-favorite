@@ -81,4 +81,15 @@ trait Favoriteability
     {
         $object->isFavorited($this->id);
     }
+
+    /**
+     * Check if the user has favorited this Object
+     * The Model needs to have the Favoriteable trai
+     * 
+     * @param Object $object
+     */
+    public function hasFavorited($object)
+    {
+        $object->isFavorited($this->id);
+    }
 }

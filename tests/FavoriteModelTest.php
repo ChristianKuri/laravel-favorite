@@ -103,4 +103,53 @@ class FavoriteModelTest extends TestCase
 
         $this->assertFalse($post->isFavorited(2));
     }
+
+    /** @test */
+    public function user_model_can_add_to_favorites_other_models()
+    {
+        $user = User::first();
+        $article = Article::first();
+
+        $user->addFavorite($article);
+
+        $this->seeInDatabase('favorites', [
+            'user_id' => $user->id,
+            'favoriteable_id' => $article->id,
+            'favoriteable_type' => get_class($article)
+        ]);
+
+        $this->assertTrue($user->hasFavorited($article));
+    }
+
+    /** @test */
+    public function user_model_can_remove_from_favorites_another_models()
+    {
+        $user = User::first();
+        $article = Article::first();
+
+        $user->removeFavorite($article);
+
+        $this->notSeeInDatabase('favorites', [
+            'user_id' => $user->id,
+            'favoriteable_id' => $article->id,
+            'favoriteable_type' => get_class($article)
+        ]);
+
+        $this->assertFalse($user->isFavorited($article));
+    }
+
+    /** @test */
+    public function user_model_can_toggle_his_favorite_models()
+    {
+        $user = User::first();
+        $article = Article::first();
+
+        $user->toggleFavorite($article);
+
+        $this->assertTrue($user->hasFavorited($article));
+
+        $user->toggleFavorite($article);
+
+        $this->assertFalse($user->isFavorited($article));
+    }
 }
