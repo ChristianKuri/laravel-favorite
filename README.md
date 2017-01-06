@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
 
 **Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.**
 
@@ -137,7 +138,7 @@ $post->favoritedBy(); // returns a collection with the Users that marked the pos
 
 ## Testing
 
-The testing functionality incoming in the next version.
+The package have integrated testing, so everytime you make a pull request your code will be tested.
 
 ## Change log
 
