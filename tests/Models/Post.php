@@ -1,8 +1,8 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Test\Models;
+namespace Ufutx\LaravelFavorite\Test\Models;
 
-use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
+use Ufutx\LaravelFavorite\Traits\Favoriteable;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model

@@ -1,4 +1,4 @@
-# Laravel Favorite (Laravel 5 Package, forked from ChristianKuri/laravel-favorite)
+# Laravel Favorite (Laravel 5 Package, forked from Ufutx/laravel-favorite)
 
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
@@ -33,7 +33,7 @@ $ composer require christiankuri/laravel-favorite
 ```php
 'providers' => [
     // ...
-    ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
+    Ufutx\LaravelFavorite\FavoriteServiceProvider::class,
 ];
 ```
 
@@ -49,7 +49,7 @@ Your User model should import the `Traits/Favoriteability.php` trait and use it,
 (see an example below):
 
 ```php
-use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
+use Ufutx\LaravelFavorite\Traits\Favoriteability;
 
 class User extends Authenticatable
 {
@@ -62,7 +62,7 @@ In all the examples I will use the Post model as the model that is 'Favoriteable
 (see an example below):
 
 ```php
-use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
+use Ufutx\LaravelFavorite\Traits\Favoriteable;
 
 class Post extends Model
 {
@@ -148,7 +148,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributions
 
 Contributions are **welcome** and will be fully **credited**.
-We accept contributions via Pull Requests on [Github](https://github.com/ChristianKuri/laravel-favorite).
+We accept contributions via Pull Requests on [Github](https://github.com/Ufutx/laravel-favorite).
 
 ### Pull Requests
 
@@ -180,17 +180,17 @@ Pull requests are welcome.
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/ChristianKuri/laravel-favorite.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/Ufutx/laravel-favorite.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/ChristianKuri/laravel-favorite/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/ChristianKuri/laravel-favorite.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/ChristianKuri/laravel-favorite.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ChristianKuri/laravel-favorite.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/Ufutx/laravel-favorite/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Ufutx/laravel-favorite.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Ufutx/laravel-favorite.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/Ufutx/laravel-favorite.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/ChristianKuri/laravel-favorite
-[link-travis]: https://travis-ci.org/ChristianKuri/laravel-favorite
-[link-scrutinizer]: https://scrutinizer-ci.com/g/ChristianKuri/laravel-favorite/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/ChristianKuri/laravel-favorite
-[link-downloads]: https://packagist.org/packages/ChristianKuri/laravel-favorite
-[link-author]: https://github.com/ChristianKuri
+[link-packagist]: https://packagist.org/packages/Ufutx/laravel-favorite
+[link-travis]: https://travis-ci.org/Ufutx/laravel-favorite
+[link-scrutinizer]: https://scrutinizer-ci.com/g/Ufutx/laravel-favorite/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/Ufutx/laravel-favorite
+[link-downloads]: https://packagist.org/packages/Ufutx/laravel-favorite
+[link-author]: https://github.com/Ufutx
 [link-contributors]: ../../contributors

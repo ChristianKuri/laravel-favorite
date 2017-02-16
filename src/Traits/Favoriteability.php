@@ -1,14 +1,14 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Traits;
+namespace Ufutx\LaravelFavorite\Traits;
 
-use ChristianKuri\LaravelFavorite\Models\Favorite;
+use Ufutx\LaravelFavorite\Models\Favorite;
 
 /**
  * This file is part of Laravel Favorite,
  *
  * @license MIT
- * @package ChristianKuri/laravel-favorite
+ * @package Ufutx/laravel-favorite
  *
  * Copyright (c) 2016 Christian Kuri
  */

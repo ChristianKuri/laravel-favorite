@@ -1,6 +1,6 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite;
+namespace Ufutx\LaravelFavorite;
 
 use Illuminate\Support\ServiceProvider;
 

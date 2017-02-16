@@ -1,9 +1,9 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Test\Models;
+namespace Ufutx\LaravelFavorite\Test\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
+use Ufutx\LaravelFavorite\Traits\Favoriteability;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements AuthenticatableContract

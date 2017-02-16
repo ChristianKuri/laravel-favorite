@@ -1,11 +1,11 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Test;
+namespace Ufutx\LaravelFavorite\Test;
 
-use ChristianKuri\LaravelFavorite\Test\Models\Article;
-use ChristianKuri\LaravelFavorite\Test\Models\Post;
-use ChristianKuri\LaravelFavorite\Test\Models\User;
-use ChristianKuri\LaravelFavorite\Models\Favorite;
+use Ufutx\LaravelFavorite\Test\Models\Article;
+use Ufutx\LaravelFavorite\Test\Models\Post;
+use Ufutx\LaravelFavorite\Test\Models\User;
+use Ufutx\LaravelFavorite\Models\Favorite;
 
 class FavoriteModelTest extends TestCase
 {

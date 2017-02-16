@@ -1,14 +1,14 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Test;
+namespace Ufutx\LaravelFavorite\Test;
 
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use ChristianKuri\LaravelFavorite\FavoriteServiceProvider;
-use ChristianKuri\LaravelFavorite\Models\Favorite;
-use ChristianKuri\LaravelFavorite\Test\Models\Article;
-use ChristianKuri\LaravelFavorite\Test\Models\Post;
-use ChristianKuri\LaravelFavorite\Test\Models\User;
+use Ufutx\LaravelFavorite\FavoriteServiceProvider;
+use Ufutx\LaravelFavorite\Models\Favorite;
+use Ufutx\LaravelFavorite\Test\Models\Article;
+use Ufutx\LaravelFavorite\Test\Models\Post;
+use Ufutx\LaravelFavorite\Test\Models\User;
 
 abstract class TestCase extends OrchestraTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ChristianKuri\LaravelFavorite\Models;
+namespace Ufutx\LaravelFavorite\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
