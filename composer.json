@@ -3,6 +3,7 @@
     "type": "library",
     "description": "Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.",
     "keywords": [
+        "glore",
         "ChristianKuri",
         "laravel-favorite",
         "laravel",
@@ -13,12 +14,12 @@
         "favoritable",
         "remember"
     ],
-    "homepage": "https://github.com/ChristianKuri/laravel-favorite",
+    "homepage": "https://github.com/glore/laravel-favorite",
     "license": "MIT",
     "authors": [
         {
-            "name": "Christian Kuri",
-            "email": "christian.kuri.martinez@gmail.com",
+            "name": "glore zeng"
+            "email": "zglore@163.com",
             "role": "Developer"
         }
     ],
