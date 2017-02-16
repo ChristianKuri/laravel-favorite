@@ -25,7 +25,7 @@
 1) Install the package via Composer
 
 ```bash
-$ composer require christiankuri/laravel-favorite
+$ composer require ufutx/laravel-favorite
 ```
 
 2) Update `config/app.php` by adding an entry for the service provider.
