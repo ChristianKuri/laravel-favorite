@@ -21,7 +21,9 @@ class FavoriteServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->loadMigrationsFrom(__DIR__.'/../migrations');
+		$this->publishes([
+			__DIR__.'/../migrations/create_favorites_table.php' => database_path('migrations/'.date('Y_m_d_His').'_create_favorites_table.php'),
+        ], 'migrations');	
 	}
 
 	/**
