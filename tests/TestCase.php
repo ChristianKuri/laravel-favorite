@@ -73,7 +73,7 @@ abstract class TestCase extends OrchestraTestCase
 
     protected function CreateFavoritesTable()
     {
-        include_once '__DIR__'.'/../migrations/2016_12_19_002011_create_favorites_table.php';
+        include_once '__DIR__'.'/../migrations/create_favorites_table.php';
 
         (new \CreateFavoritesTable())->up();
     }
