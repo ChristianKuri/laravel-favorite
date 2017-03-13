@@ -36,7 +36,13 @@ $ composer require christiankuri/laravel-favorite
 ];
 ```
 
-3) Migrate the database from the command line:
+3) Publish the database from the command line:
+
+```shell
+php artisan vendor:publish --provider="ChristianKuri\LaravelFavorite\FavoriteServiceProvider"
+```
+
+4) Migrate the database from the command line:
 
 ```shell
 php artisan migrate
