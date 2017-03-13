@@ -4,6 +4,17 @@ All Notable changes to `laravel-favorite` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+
+## v1.2.0 - 2017-03-13
+
+### Added
+- Publish functionality for the migrations
+
+### Fixed
+- Favoriteability trait to return collection.
+
+
+
 ## v1.1.0 - 2017-01-06
 
 ### Added
