@@ -25,13 +25,27 @@ trait Favoriteability
     }
 
     /**
+     * Return a Model with the User favorited Model.
+     * The Model needs to have the Favoriteable trait
+     * 
+     * @param  $class *** Accepts for example: Post::class or 'App\Post' ****
+     * @return Collection
+     */
+    public function favoriteModel($class)
+    {
+        return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
+            return [$item['favoriteable']->id=>$item['favoriteable']];
+        });
+    }
+
+    /**
      * Return a collection with the User favorited Model.
      * The Model needs to have the Favoriteable trait
      * 
      * @param  $class *** Accepts for example: Post::class or 'App\Post' ****
      * @return Collection
      */
-    public function favorite($class)
+    public function favorite($class, $limit=false)
     {
         return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
             return [$item['favoriteable']->id=>$item['favoriteable']];
