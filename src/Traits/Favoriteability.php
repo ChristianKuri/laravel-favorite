@@ -34,7 +34,12 @@ trait Favoriteability
     public function favoriteModel($class)
     {
         return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
-            return [$item['favoriteable']->id=>$item['favoriteable']];
+            if($item->favoriteable){
+                return [$item['favoriteable']->id=>$item['favoriteable']];
+            }else{
+                //todo: delete removed item's favorite 
+                return [];
+            }
         });
     }
 
@@ -48,7 +53,12 @@ trait Favoriteability
     public function favorite($class, $limit=false)
     {
         return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
-            return [$item['favoriteable']->id=>$item['favoriteable']];
+            if($item->favoriteable){
+                return [$item['favoriteable']->id=>$item['favoriteable']];
+            }else{
+                //todo: delete removed item's favorite 
+                return [];
+            }
         });
     }
 
