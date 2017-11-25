@@ -52,7 +52,7 @@ trait Favoriteability
      */
     public function favorite($class, $limit=false)
     {
-        return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
+        $favorites = $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function  ($item) {
             if($item->favoriteable){
                 return [$item['favoriteable']->id=>$item['favoriteable']];
             }else{
@@ -60,6 +60,7 @@ trait Favoriteability
                 return [];
             }
         });
+        return array_values($favorites->toArray());
     }
 
     /**
