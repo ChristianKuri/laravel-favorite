@@ -75,7 +75,7 @@ trait Favoriteable
      */
 	public function favoritedBy()
 	{
-		return $this->favorites()->with('user')->get()->mapWithKeys(function ($item) {
+		return $this->favorites()->with('user')->get()->map(function ($item) {
             return [$item['user']];
         });
 	}
