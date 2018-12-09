@@ -187,7 +187,7 @@ class FavoriteModelTest extends TestCase
     }
 
     /** @test */
-    public function a_model_knows_how_make_users_have_favorited_him()
+    public function a_model_knows_how_many_users_have_favorited_him()
     {
         $article = Article::first();
 
@@ -205,7 +205,7 @@ class FavoriteModelTest extends TestCase
     }
 
     /** @test */
-    public function a_model_knows_how_which_users_have_favorited_him()
+    public function a_model_knows_which_users_have_favorited_him()
     {
         $article = Article::first();
 
