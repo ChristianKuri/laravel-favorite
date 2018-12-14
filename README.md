@@ -27,7 +27,7 @@
 $ composer require christiankuri/laravel-favorite
 ```
 
-2) Update `config/app.php` by adding an entry for the service provider.
+2) In Laravel >=5.5 this package will automatically get registered. For older versions, update your `config/app.php` by adding an entry for the service provider.
 
 ```php
 'providers' => [
@@ -115,7 +115,7 @@ $user->toggleFavorite($post); // The user toggles the favorite status from this 
 
 ### Return the favorite objects for the user:
 
-A user can return the objects he marked as favorite. 
+A user can return the objects he marked as favorite.
 You just need to pass the **class** in the `favorite()` method in the `User` model.
 
 ``` php
@@ -181,7 +181,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/Christi
 
 ## Security
 
-Please report any issue you find in the issues page.  
+Please report any issue you find in the issues page.
 Pull requests are welcome.
 
 ## Credits
