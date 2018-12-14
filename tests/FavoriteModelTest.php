@@ -18,7 +18,7 @@ class FavoriteModelTest extends TestCase
 
         $article->addFavorite();
 
-        $this->seeInDatabase('favorites', [
+        $this->assertDatabaseHas('favorites', [
             'user_id' => $user->id,
             'favoriteable_id' => $article->id,
             'favoriteable_type' => get_class($article)
@@ -36,7 +36,7 @@ class FavoriteModelTest extends TestCase
 
         $article->removeFavorite();
 
-        $this->notSeeInDatabase('favorites', [
+        $this->assertDatabaseMissing('favorites', [
             'user_id' => $user->id,
             'favoriteable_id' => $article->id,
             'favoriteable_type' => get_class($article)
@@ -67,7 +67,7 @@ class FavoriteModelTest extends TestCase
         $post = Post::first();
         $post->addFavorite(2);
 
-        $this->seeInDatabase('favorites', [
+        $this->assertDatabaseHas('favorites', [
             'user_id' => 2,
             'favoriteable_id' => $post->id,
             'favoriteable_type' => get_class($post)
@@ -82,7 +82,7 @@ class FavoriteModelTest extends TestCase
         $post = Post::first();
         $post->removeFavorite(2);
 
-        $this->notSeeInDatabase('favorites', [
+        $this->assertDatabaseMissing('favorites', [
             'user_id' => 2,
             'favoriteable_id' => $post->id,
             'favoriteable_type' => get_class($post)
@@ -112,7 +112,7 @@ class FavoriteModelTest extends TestCase
 
         $user->addFavorite($article);
 
-        $this->seeInDatabase('favorites', [
+        $this->assertDatabaseHas('favorites', [
             'user_id' => $user->id,
             'favoriteable_id' => $article->id,
             'favoriteable_type' => get_class($article)
@@ -129,7 +129,7 @@ class FavoriteModelTest extends TestCase
 
         $user->removeFavorite($article);
 
-        $this->notSeeInDatabase('favorites', [
+        $this->assertDatabaseMissing('favorites', [
             'user_id' => $user->id,
             'favoriteable_id' => $article->id,
             'favoriteable_type' => get_class($article)
@@ -187,7 +187,7 @@ class FavoriteModelTest extends TestCase
     }
 
     /** @test */
-    public function a_model_knows_how_make_users_have_favorited_him()
+    public function a_model_knows_how_many_users_have_favorited_him()
     {
         $article = Article::first();
 
@@ -205,7 +205,7 @@ class FavoriteModelTest extends TestCase
     }
 
     /** @test */
-    public function a_model_knows_how_which_users_have_favorited_him()
+    public function a_model_knows_which_users_have_favorited_him()
     {
         $article = Article::first();
 
