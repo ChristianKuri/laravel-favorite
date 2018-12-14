@@ -1,6 +1,7 @@
 # Laravel Favorite (Laravel 5 Package)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
+[![Packagist Downloads][ico-downloads]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 
