@@ -13,7 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Included isFavorited method in README file
 
 ### Fixed
-- Favoriteability trait to return collection.
+- Unit tests
 
 ## v1.2.0 - 2017-03-13
 
