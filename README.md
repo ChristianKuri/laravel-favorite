@@ -141,6 +141,14 @@ $post = Post::find(1);
 $post->favoritedBy(); // returns a collection with the Users that marked the post as favorite.
 ```
 
+### Check if the user already favorited an object
+
+You can check if the Auth user have already favorited an object, you just need to call the `isFavorited()` method in the object
+
+``` php
+$post = Post::find(1);
+$post->isFavorited(); // returns a boolean with true or false.
+```
 
 ## Testing
 
