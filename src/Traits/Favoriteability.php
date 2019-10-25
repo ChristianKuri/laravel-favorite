@@ -37,6 +37,8 @@ trait Favoriteability
             if (isset($item['favoriteable'])) {
                 return [$item['favoriteable']->id=>$item['favoriteable']];
             }
+
+            return [];
         });
     }
 
