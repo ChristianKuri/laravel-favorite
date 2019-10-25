@@ -14,12 +14,12 @@ use ChristianKuri\LaravelFavorite\Models\Favorite;
  */
 trait Favoriteability
 {
-	/**
+    /**
      * Define a one-to-many relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-	public function favorites()
+    public function favorites()
     {
         return $this->hasMany(Favorite::class, 'user_id');
     }
@@ -48,7 +48,7 @@ trait Favoriteability
      */
     public function addFavorite($object)
     {
-    	$object->addFavorite($this->id);
+        $object->addFavorite($this->id);
     }
 
     /**
