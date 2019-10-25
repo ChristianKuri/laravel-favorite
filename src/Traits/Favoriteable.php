@@ -28,8 +28,6 @@ trait Favoriteable
     /**
      * Add this Object to the user favorites
      * 
-	 * 
-     * 
      * @param  int $user_id  [if  null its added to the auth user]
      */
     public function addFavorite($user_id = null)
@@ -43,8 +41,6 @@ trait Favoriteable
      *
      * @param  int $user_id  [if  null its added to the auth user]
      * 
-	 * 
-     * 
      */
     public function removeFavorite($user_id = null)
     {
@@ -53,8 +49,6 @@ trait Favoriteable
 
     /**
      * Toggle the favorite status from this Object
-     * 
-	 * 
      * 
      * @param  int $user_id  [if  null its added to the auth user]
      */
@@ -65,8 +59,6 @@ trait Favoriteable
 
     /**
      * Check if the user has favorited this Object
-     * 
-	 * 
      * 
      * @param  int $user_id  [if  null its added to the auth user]
      * @return boolean
@@ -91,8 +83,6 @@ trait Favoriteable
     /**
      * Count the number of favorites
      * 
-	 * 
-     * 
      * @return int
      */
     public function getFavoritesCountAttribute()
@@ -106,6 +96,20 @@ trait Favoriteable
     public function favoritesCount()
     {
         return $this->favoritesCount;
+    }
+
+    /**
+     * Add deleted observer to delete favorites registers
+     * 
+     * @return void
+     */
+    public static function bootFavoriteable()
+    {
+        static::deleted(
+            function ($model) {
+                $model->favorites()->delete();
+            }
+        );
     }
 
 }
