@@ -223,6 +223,22 @@ class FavoriteModelTest extends TestCase
     }
 
     /** @test */
+    public function a_user_not_return_favorites_deleteds()
+    {
+        $user = User::first();
+
+        $article1 = Article::find(1);
+        $article2 = Article::find(2);
+
+        $user->addFavorite($article1);
+        $user->addFavorite($article2);
+
+        $article1->delete();
+
+        $this->assertEquals(1, $user->favorite(Article::class)->count());
+    }
+
+    /** @test */
     public function a_model_delete_favorites_on_deleted_observer()
     {
         $user = User::find(1);
