@@ -237,4 +237,50 @@ class FavoriteModelTest extends TestCase
 
         $this->assertEquals(1, $user->favorite(Article::class)->count());
     }
+
+    /** @test */
+    public function a_model_delete_favorites_on_deleted_observer()
+    {
+        $user = User::find(1);
+        $user2 = User::find(2);
+
+        $article = Article::first();
+
+        $user->addFavorite($article);
+        $user2->addFavorite($article);
+
+        $this->assertDatabaseHas(
+            'favorites', [
+                'user_id' => $user->id,
+                'favoriteable_id' => $article->id,
+                'favoriteable_type' => get_class($article)
+            ]
+        );
+
+        $this->assertDatabaseHas(
+            'favorites', [
+                'user_id' => $user2->id,
+                'favoriteable_id' => $article->id,
+                'favoriteable_type' => get_class($article)
+            ]
+        );
+
+        $article->delete();
+
+        $this->assertDatabaseMissing(
+            'favorites', [
+                'user_id' => $user->id,
+                'favoriteable_id' => $article->id,
+                'favoriteable_type' => get_class($article)
+            ]
+        );
+
+        $this->assertDatabaseMissing(
+            'favorites', [
+                'user_id' => $user2->id,
+                'favoriteable_id' => $article->id,
+                'favoriteable_type' => get_class($article)
+            ]
+        );
+    }
 }
