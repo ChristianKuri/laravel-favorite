@@ -1,4 +1,4 @@
-# Laravel Favorite (Laravel 5 Package)
+# Laravel Favorite (Laravel 5, 6 Package)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Packagist Downloads][ico-downloads]][link-packagist]
