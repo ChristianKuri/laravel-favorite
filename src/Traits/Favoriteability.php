@@ -35,7 +35,8 @@ trait Favoriteability
     {
         return $this->favorites()->where('favoriteable_type', $class)->with('favoriteable')->get()->mapWithKeys(function ($item) {
             if (isset($item['favoriteable'])) {
-                return [$item['favoriteable']->id=>$item['favoriteable']];
+                $key = $item['favoriteable']['id'] ? 'id' : 'uuid';
+                return [$item['favoriteable'][$key]=>$item['favoriteable']];
             }
 
             return [];
