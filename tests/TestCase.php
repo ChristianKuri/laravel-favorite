@@ -43,7 +43,7 @@ abstract class TestCase extends OrchestraTestCase
 
         $app['config']->set('database.connections.sqlite', [
             'driver'   => 'sqlite',
-            'database' => $this->getTempDirectory().'/database.sqlite',
+            'database' => $this->getTempDirectory() . '/database.sqlite',
             'prefix'   => '',
         ]);
 
@@ -68,19 +68,19 @@ abstract class TestCase extends OrchestraTestCase
 
     protected function resetDatabase()
     {
-        file_put_contents($this->getTempDirectory().'/database.sqlite', null);
+        file_put_contents($this->getTempDirectory() . '/database.sqlite', null);
     }
 
     protected function CreateFavoritesTable()
     {
-        include_once '__DIR__'.'/../migrations/create_favorites_table.php';
+        include_once '__DIR__' . '/../migrations/create_favorites_table.php';
 
         (new \CreateFavoritesTable())->up();
     }
 
     public function getTempDirectory()
     {
-        return __DIR__.'/temp';
+        return __DIR__ . '/temp';
     }
 
     protected function createTables(...$tableNames)
