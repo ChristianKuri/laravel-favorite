@@ -17,6 +17,8 @@ abstract class TestCase extends OrchestraTestCase
         parent::setUp();
 
         $this->setUpDatabase();
+
+        return;
     }
 
     protected function checkRequirements()
