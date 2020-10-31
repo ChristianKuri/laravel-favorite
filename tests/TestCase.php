@@ -12,7 +12,7 @@ use ChristianKuri\LaravelFavorite\Test\Models\User;
 
 abstract class TestCase extends OrchestraTestCase
 {
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
