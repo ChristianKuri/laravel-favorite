@@ -283,4 +283,18 @@ class FavoriteModelTest extends TestCase
             ]
         );
     }
+
+    /** @test */
+    public function it_can_retrieve_a_list_of_favorited_objects()
+    {
+        $user = User::find(1);
+
+        $article = Article::find(1);
+
+        $this->assertEquals(0, Article::onlyFavorited($user->id)->count());
+
+        $article->addFavorite($user->id);
+
+        $this->assertEquals(1, Article::onlyFavorited($user->id)->count());
+    }
 }

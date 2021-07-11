@@ -3,11 +3,13 @@
 namespace ChristianKuri\LaravelFavorite\Traits;
 
 use ChristianKuri\LaravelFavorite\Models\Favorite;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
 /**
  * This file is part of Laravel Favorite,
  *
+ * @method static \Illuminate\Database\Eloquent\Builder onlyFavorited($user_id = null)
  * @license MIT
  * @package ChristianKuri/laravel-favorite
  *
@@ -77,6 +79,20 @@ trait Favoriteable
     {
         return $this->favorites()->with('user')->get()->mapWithKeys(function ($item) {
             return [$item['user']->id => $item['user']];
+        });
+    }
+
+    /**
+     * Retrieve only the favorited objects.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param int|null $user_id  [if  null its added to the auth user]
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOnlyFavorited(Builder $builder, $user_id = null)
+    {
+        return $builder->whereHas('favorites', function ($builder) use ($user_id) {
+            $builder->where('user_id',  $user_id ?: Auth::id());
         });
     }
 
