@@ -122,6 +122,7 @@ You just need to pass the **class** in the `favorite()` method in the `User` mod
 ``` php
 $user = Auth::user();
 $user->favorite(Post::class); // returns a collection with the Posts the User marked as favorite
+Post::onlyFavorited($user->id); // returns a builder instance with the Posts the User marked as favorite
 ```
 
 ### Return the favorites count from an object:
