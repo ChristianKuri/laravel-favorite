@@ -80,11 +80,9 @@ trait Favoriteable
             return null !== $user->user;
         });
         $users = $filtered->values()->all();
-        dd($users);
-        return $this->favorites()->with('user')->get()->mapWithKeys(function ($item) {
-            if(null !== $item['user']){
-                return [$item['user']->id => $item['user']];
-            }
+        // dd($users);
+        return $users->mapWithKeys(function ($item) {
+            return [$item['user']->id => $item['user']];
         });
     }
 
