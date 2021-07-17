@@ -76,10 +76,11 @@ trait Favoriteable
     public function favoritedBy()
     {
         $users = $this->favorites()->with('user')->get();
-        $users = $users->filter(function($user){
+        $filtered = $users->filter(function($user){
             return null !== $user->user;
         });
-        dd($users->all());
+        $users = $filtered->values()->all()
+        dd($users);
         return $this->favorites()->with('user')->get()->mapWithKeys(function ($item) {
             if(null !== $item['user']){
                 return [$item['user']->id => $item['user']];
